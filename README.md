@@ -1,5 +1,3 @@
-# OpenAI Gym examples
+# Reinforcement Learning examples
 
-The folders are related to OpenAI Gym categories.
-
-For more check [OpenAI Gym](https://gym.openai.com)
+The folders are related to [OpenAI Gym](https://gym.openai.com) categories.

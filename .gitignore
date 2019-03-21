@@ -1,5 +1,11 @@
+# IDE
+.vscode/
+.idea/
+*.iml
+
 .ipynb_checkpoints/
-logs/
-.DS_Store
 *.pyc
 
+logs/
+.DS_Store
+venv/

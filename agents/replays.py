@@ -2,6 +2,7 @@
 import numpy as np
 import random
 
+
 class ReplayBuffer(object):
     def __init__(self, size):
         """Create Replay buffer.
@@ -61,3 +62,22 @@ class ReplayBuffer(object):
         """
         idxes = [random.randint(0, len(self._storage) - 1) for _ in range(batch_size)]
         return self._encode_sample(idxes)
+
+
+def build_training_set(qvalues, qvalues_next, actions, rewards, dones, gamma=0.99):
+    """
+    Create training set for QNetwork.
+    Params:
+      qvalues           - Q values for the starting state
+      qvalues_next      - Q values for the state the next state
+      actions           - Actions taken
+      rewards           - Rewards received after taking action 
+      dones             - Did this action end the episode?
+      
+    Returns:
+      Expected qvalues
+    """
+    y = qvalues.copy()
+    next_rewards = np.where(dones, np.zeros(rewards.shape), np.max(qvalues_next, axis=1))
+    y[np.arange(y.shape[0]), actions] = rewards + gamma * next_rewards
+    return y

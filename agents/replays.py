@@ -1,10 +1,9 @@
-# This code is shamelessly stolen from https://github.com/openai/baselines/blob/master/baselines/deepq/replay_buffer.py
 import numpy as np
 import random
 
 
 class ReplayBuffer(object):
-    def __init__(self, size):
+    def __init__(self, size=10_000):
         """Create Replay buffer.
         Parameters
         ----------

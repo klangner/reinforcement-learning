@@ -2,6 +2,7 @@
 .vscode/
 .idea/
 *.iml
+data/
 
 .ipynb_checkpoints/
 *.pyc

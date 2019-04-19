@@ -34,3 +34,15 @@ class GreedyPolicy:
         qvalues = self.model.predict(state)
         action = np.argmax(qvalues)
         return action
+
+
+class RandomPolicy:
+    """Good policy for evaluating the model
+    """
+
+    def __init__(self, num_actions):
+        self.num_actions = num_actions
+
+    def select_action(self, state):
+        action = np.random.randint(self.num_actions)
+        return action
